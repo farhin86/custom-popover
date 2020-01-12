@@ -7,7 +7,9 @@ function Popover(props) {
   const [positionBottom, setPositionBottom] = useState("auto");
   const [distanceBottom, setDistanceBottom] = useState(0);
   const [uniqueId, setUniqueId] = useState(0);
+
   const { size, popOverId, openPopOver } = props;
+
   const getPosFromTop = el => {
     for (
       var lx = 0, ly = 0;
@@ -42,11 +44,12 @@ function Popover(props) {
 
       setDistanceBottom(spaceBelow);
       setPositionRight(spaceRight);
+      let bottom;
       if (distanceBottom > popoverHeight) {
-        let bottom = spaceBelow - popoverHeight;
+        bottom = spaceBelow - popoverHeight;
         setPositionBottom(bottom);
       } else if (space < popoverHeight) {
-        let bottom = elmentHeight + spaceBelow;
+        bottom = elmentHeight + spaceBelow;
         setPositionBottom(bottom);
       }
     }
@@ -56,7 +59,13 @@ function Popover(props) {
     setPositionBottom("auto");
     props.popoverClickOutside();
   }
-
+  //   function handlePopoverScroll(event) {
+  //     debugger;
+  //     if (props.overLay) {
+  //       console.log(event);
+  //       event.preventDefault();
+  //     }
+  //   }
   return (
     <div className="popover-element">
       {props.element}
@@ -64,10 +73,16 @@ function Popover(props) {
         <div
           className="popover-page"
           style={
-            props.overLay ? { backgroundColor: "rgba(68, 66, 66, 0.21)" } : {}
+            props.overLay
+              ? {
+                  backgroundColor: "rgba(68, 66, 66, 0.21)"
+                  //   scroll: "no"
+                }
+              : {}
           }
           // onClick={props.popoverClickOutside}
           onClick={handlePopoverClickOutside}
+          //   onScroll={handlePopoverScroll}
         >
           <div
             className={`popover-main ${uniqueId}`}
@@ -82,7 +97,7 @@ function Popover(props) {
                       left: size["left"] ? size["left"] : {}
                     }
                   : {}
-                : { display: "none" }
+                : { visibility: "hidden" }
             }
           >
             {props.children}

@@ -19,17 +19,22 @@ export default class Home extends Component {
             const uniqueId = Math.random();
             const actionId = `test-id ${uniqueId}`;
             return (
-              <div className="home-group">
+              <div className="home-group" key={index}>
                 <Popover
                   element={
-                    <div
-                      className="title"
-                      id={actionId}
-                      onClick={() => {
-                        this.setState({ showPopOver: index });
-                      }}
-                    >
-                      {eachGroup.title}
+                    <div className="group-container">
+                      <div
+                        className="title"
+                        id={actionId}
+                        onClick={() => {
+                          this.setState({ showPopOver: index });
+                        }}
+                      >
+                        {eachGroup.title}
+                      </div>
+                      <div className="subtitle">
+                        Click at group name to see popover!
+                      </div>
                     </div>
                   }
                   openPopOver={showPopOver === index}
@@ -40,7 +45,6 @@ export default class Home extends Component {
                     width: "11%",
                     elementWidth: "102"
                   }}
-                  overLay={true} //false
                   popOverId={actionId}
                 >
                   {eachGroup.popoverItems.map((item, index) => {
@@ -75,57 +79,57 @@ export default class Home extends Component {
 Home.defaultProps = {
   groupOfMenu: [
     {
-      title: "Group1",
+      title: "Group 1",
       popoverItems: [
-        { label: 10, value: 10 },
-        { label: 20, value: 20 },
-        { label: 50, value: 50 },
-        { label: 100, value: 100 }
+        { label: "Group 1 item 1", value: "Group 1 item 1" },
+        { label: "Group 1 item 2", value: "Group 1 item 2" },
+        { label: "Group 1 item 3", value: "Group 1 item 3" },
+        { label: "Group 1 item 4", value: "Group 1 item 4" }
       ]
     },
     {
-      title: "Group2",
+      title: "Group 2",
       popoverItems: [
-        { label: 10, value: 10 },
-        { label: 20, value: 20 },
-        { label: 50, value: 50 },
-        { label: 100, value: 100 }
+        { label: "Group 2 item 1", value: "Group 2 item 1" },
+        { label: "Group 2 item 2", value: "Group 2 item 2" },
+        { label: "Group 2 item 3", value: "Group 2 item 3" },
+        { label: "Group 2 item 4", value: "Group 2 item 4" }
       ]
     },
     {
-      title: "Group3",
+      title: "Group 3",
       popoverItems: [
-        { label: 10, value: 10 },
-        { label: 20, value: 20 },
-        { label: 50, value: 50 },
-        { label: 100, value: 100 }
+        { label: "Group 3 item 1", value: "Group 3 item 1" },
+        { label: "Group 3 item 2", value: "Group 3 item 2" },
+        { label: "Group 3 item 3", value: "Group 3 item 3" },
+        { label: "Group 3 item 4", value: "Group 3 item 4" }
       ]
     },
     {
-      title: "Group4",
+      title: "Group 4",
       popoverItems: [
-        { label: 10, value: 10 },
-        { label: 20, value: 20 },
-        { label: 50, value: 50 },
-        { label: 100, value: 100 }
+        { label: "Group 4 item 1", value: "Group 4 item 1" },
+        { label: "Group 4 item 2", value: "Group 4 item 2" },
+        { label: "Group 4 item 3", value: "Group 4 item 3" },
+        { label: "Group 4 item 4", value: "Group 4 item 4" }
       ]
     },
     {
-      title: "Group5",
+      title: "Group 5",
       popoverItems: [
-        { label: 10, value: 10 },
-        { label: 20, value: 20 },
-        { label: 50, value: 50 },
-        { label: 100, value: 100 }
+        { label: "Group 5 item 1", value: "Group 5 item 1" },
+        { label: "Group 5 item 2", value: "Group 5 item 2" },
+        { label: "Group 5 item 3", value: "Group 5 item 3" },
+        { label: "Group 5 item 4", value: "Group 5 item 4" }
       ]
     },
     {
-      title: "Group6",
+      title: "Group 6",
       popoverItems: [
-        { label: "a", value: 10 },
-        { label: 20, value: 20 },
-        { label: 50, value: 50 },
-        { label: 100, value: 100 }
+        { label: "Group 6 item 1", value: "Group 6 item 1" },
+        { label: "Group 6 item 2", value: "Group 6 item 2" },
+        { label: "Group 6 item 3", value: "Group 6 item 3" },
+        { label: "Group 6 item 4", value: "Group 6 item 4" }
       ]
     }
   ]

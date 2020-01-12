@@ -8,7 +8,7 @@
   color: #002233;
   user-select: none;
 }
-&:hover {
+.popover-items:hover {
   background-color: rgba(0, 158, 235, 0.09);
   color: #009eeb;
 }
