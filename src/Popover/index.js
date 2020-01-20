@@ -119,7 +119,7 @@ Popover.defaultProps = {
   size: { width: "150px", elementWidth: "50" },
   outsideClickClose: true,
   popoverClickOutside: {},
-  overLay: true
+  overLay: false
 };
 
 Popover.propTypes = {
