@@ -59,13 +59,7 @@ function Popover(props) {
     setPositionBottom("auto");
     props.popoverClickOutside();
   }
-  //   function handlePopoverScroll(event) {
-  //     debugger;
-  //     if (props.overLay) {
-  //       console.log(event);
-  //       event.preventDefault();
-  //     }
-  //   }
+
   return (
     <div className="popover-element">
       {props.element}
@@ -76,13 +70,10 @@ function Popover(props) {
             props.overLay
               ? {
                   backgroundColor: "rgba(68, 66, 66, 0.21)"
-                  //   scroll: "no"
                 }
               : {}
           }
-          // onClick={props.popoverClickOutside}
           onClick={handlePopoverClickOutside}
-          //   onScroll={handlePopoverScroll}
         >
           <div
             className={`popover-main ${uniqueId}`}
@@ -119,7 +110,7 @@ Popover.defaultProps = {
   size: { width: "150px", elementWidth: "50" },
   outsideClickClose: true,
   popoverClickOutside: {},
-  overLay: false
+  overLay: true
 };
 
 Popover.propTypes = {
